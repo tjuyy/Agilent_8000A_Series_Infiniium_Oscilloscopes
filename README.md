@@ -14,6 +14,12 @@ Tested on Agilent MSO8104A Infiniium Oscilloscope.
     ```
 - `NI VISA 17.5`
 
+	[Download NI-VISA for Windows](http://www.ni.com/download/ni-visa-17.5/7224/en/ "NI-VISA 17.5 for Windows")
+
+	[Download NI-VISA for Mac OS X](http://www.ni.com/download/ni-visa-17.5/7220/en/ "NI-VISA 17.5 for Mac")
+    
+	[Download NI-VISA for Linux](http://www.ni.com/download/ni-visa-17.0/6700/en/ "NI-VISA 17.5 for Linux")
+
 ## Usage:
 
 - modified the parameters in the init() function
