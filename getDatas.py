@@ -31,6 +31,7 @@ def init(inst, memory_depth, sample_rate='AUTO'):
     inst.write(":CHANnel1:RANGe 8;OFFSet 0e-3")
     # trigger setup
     inst.write(":TRIGger:SOURce Channel1")
+    inst.write(":TRIGger:LEVel CHANnel1,0")
     inst.write(":TRIGger:MODE EDGE")
     inst.write(":TRIG:Slope POS")
     # acquire mode setup
