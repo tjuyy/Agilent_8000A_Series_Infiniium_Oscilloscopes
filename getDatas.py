@@ -114,9 +114,9 @@ def plot_figure(path):
 # return bytes length to read 
 def SetupDataTransfer(inst):
     x = inst.read_bytes(count=1, chunk_size=None, break_on_termchar=False)
-    # 第一个字节'#'
+    # 1st byte'#'
     L = inst.read_bytes(count=1, chunk_size=None, break_on_termchar=False)
-    # 第二个字节表示返回的字节用L位表示
+    # 2bd byte L indicate length of bytes to read
     bytes_to_read = L[0] - ord('0')
     x = inst.read_bytes(bytes_to_read, chunk_size=None)
     bytes_to_read = x.decode('ascii')
@@ -186,25 +186,19 @@ def storage_to_file(x):
         ["data", time.strftime("%Y%m%d_%H%M%S.csv", time.localtime())])
     f = open(finalpath, 'w')
     for i in range(len(x)):
-        # print(x[i], y[i])
-        # print(x[i])
-        # f.write('{0:.3e},{.3e}\n'.format(x[i], y[i]))
         f.write('{0:.4e}\n'.format(x[i]))
-        # print('{0:.3e},{.3e}\n'.format(x[i], y[i]))
     f.close()
 
 
 def main():
     print(sys.version)
-    print('Start at ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     rm = visa.ResourceManager()
     # print(rm.list_resources())
-    # inst = rm.open_resource('GPIB0::7::INSTR', query_delay=1)  # GPIB address set query_delay after each command
+    # inst = rm.open_resource('GPIB0::7::INSTR', query_delay=1)  # set query_delay after each command
     inst = rm.open_resource('GPIB0::7::INSTR')  # GPIB address
     inst.chunk_size = 102400
     inst.timeout = 10000
     inst.read_termination = '\n'
-    # print(inst)
     print(inst.query('*IDN?'))
 
     # initialize, set memory_depth & sample_rate
@@ -225,13 +219,13 @@ def main():
     # p = acquire_ascii(inst, read_length=4000)
     # plot_figure(p)
 
-    print(
-        'Finished at ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     inst.close()
-    exit()
+
 
 
 pwd = os.getcwd()
 
 if __name__ == '__main__':
+    print('Start at ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     main()
+    print('Finished at ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
