@@ -5,8 +5,17 @@ Tested on Agilent MSO8104A Infiniium Oscilloscope.
 
 
 ## Requirements:
-TBD
+
+- Python 3.4+
+- pyVISA >1.6
+
+    You can install it using pip:
+    ```bash
+    $ pip install -U pyvisa
+    ```
+- NI VISA 17.5
 
 ## Usage:
-TBD
-
+- modified the parameters in the init() function
+- modified storage depth and sample rate in the main() function
+- RUN!
