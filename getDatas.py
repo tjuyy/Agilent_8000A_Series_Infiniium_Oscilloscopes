@@ -20,8 +20,6 @@ def unsigned_byte_to_signed_byte(byte):
 def init(inst, memory_depth, sample_rate='AUTO'):
     if memory_depth > 4100000:
         memory_depth = 4100000
-    # Configure oscilloscope
-    # wav_pts = ":ACQUIRE:POINTS 2000000"
     # init
     inst.write("*RST")
     inst.write(":CLS")
